@@ -1,0 +1,65 @@
+" This file should be named .vimrc
+" Proper use of this file requires that Vundle is installed.
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+
+"----- Required setup for Vundle (vim package manager) -----"
+set nocompatible 
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+"----- Install Plugins -----"
+" Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
+
+" All Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+"----- Install Plugins via Pathogen.vim -----"
+" execute pathogen#infect()
+" syntax on
+" filetype plugin indent on
+" autocmd vimenter * NERDTree"
+
+"------  Bring in basic behavior  ------"
+source $HOME/.vimrc_basic
+
+"------  Always use the mouse  ------"
+set mouse=a
+
+"----- Allow for easy mouse toggling -----"
+nnoremap <Leader>m :call ToggleMouse()<CR>
+function! ToggleMouse()
+    if &mouse == 'a'
+        set mouse=
+        echo "Mouse usage disabled"
+    else
+        set mouse=a
+        echo "Mouse usage enabled"
+    endif
+endfunction
+
+"----- Share clipboard -----"
+set clipboard^=unnamed
+if has('unnamedplus')
+    set clipboard^=unnamedplus
+endif
+
+"------  NERDTree Options  ------"
+
+let NERDTreeIgnore=['\.git$', '\.pyc$', '__pycache__']
+
+" following line finds the current file in NERDTree when pressing <Leader>a
+map <leader>a :NERDTreeFind<C-M>
+
+" quit vim if NERDTree is last buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+
+
