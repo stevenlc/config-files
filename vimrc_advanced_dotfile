@@ -1,30 +1,28 @@
-" This file should be named .vimrc
-" Proper use of this file requires that Vundle is installed.
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" This file should be named .vimrc and placed in ~/.vimrc
+" This assumes pathogen.vim is installed:
+"    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+"    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+" In addition, a few other bundles were added to the ~/.vim/bundles directory:
+"    NERDTree, Distinguished (color scheme)
 "
+"
+""----- Required for Pathogen.vim -----"
+execute pathogen#infect()
 
-"----- Required setup for Vundle (vim package manager) -----"
-set nocompatible 
-filetype off
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"------  NERDTree Options  ------"
+let NERDTreeIgnore=['\.git$', '\.pyc$', '__pycache__']
 
-"----- Install Plugins -----"
-" Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
+" following line finds the current file in NERDTree when pressing <Leader>a
+map <leader>a :NERDTreeFind<C-M>
 
-" All Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" quit vim if NERDTree is last buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"----- Install Plugins via Pathogen.vim -----"
-" execute pathogen#infect()
-" syntax on
-" filetype plugin indent on
-" autocmd vimenter * NERDTree"
+"----- Distinguished color scheme -----" 
+" set t_Co = 256
+syntax on
+set background=dark
+colorscheme distinguished
 
 "------  Bring in basic behavior  ------"
 source $HOME/.vimrc_basic
@@ -49,17 +47,5 @@ set clipboard^=unnamed
 if has('unnamedplus')
     set clipboard^=unnamedplus
 endif
-
-"------  NERDTree Options  ------"
-
-let NERDTreeIgnore=['\.git$', '\.pyc$', '__pycache__']
-
-" following line finds the current file in NERDTree when pressing <Leader>a
-map <leader>a :NERDTreeFind<C-M>
-
-" quit vim if NERDTree is last buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
 
 
