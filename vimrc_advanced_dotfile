@@ -50,6 +50,8 @@ set completeopt-=preview
 let g:indent_guides_enable_on_vim_startup = 1
 set autoindent
 
+"----- Set .ejs to use html bindings -----"
+au BufNewFile,BufRead *.ejs set filetype=html
 
 "------  Always use the mouse  ------"
 set mouse=a
