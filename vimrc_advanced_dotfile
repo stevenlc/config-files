@@ -2,19 +2,25 @@
 " This assumes pathogen.vim is installed:
 "    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 "    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-" In addition, a few other bundles were added to the ~/.vim/bundles directory:
-"    NERDTree, Distinguished (color scheme)
-"
-"
+" from there, you can install bundles by git cloning the repos into the
+" ~/.vim/bundles directory. Here are the ones I use: 
+"   delimitMate.vim         - auto-closing (s and {s
+"   nerdtree                - tree navigator
+"   tern_for_vim            - autocomplete. needs youcompleteme
+"   vim-distinguished       - vim terminal color scheme
+"   vim-indent-guides
+"   vim-javascript
+"   vim-javascript-syntax
+"   youcompleteme           - syntax suggestions
+
+
 ""----- Required for Pathogen.vim -----"
 execute pathogen#infect()
 
 "------  NERDTree Options  ------"
 let NERDTreeIgnore=['\.git$', '\.pyc$', '__pycache__']
-
 " following line finds the current file in NERDTree when pressing <Leader>a
 map <leader>a :NERDTreeFind<C-M>
-
 " quit vim if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -23,6 +29,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 syntax on
 set background=dark
 colorscheme distinguished
+
+"----- DelimitMate -----"
+" add key mapping to create a new line after paren/brace matching
+imap <C-c> <CR><CR><Esc>ki<Tab>
+
+"----- YouCompleteMe -----"
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+"----- vim-indent-guides -----"
+" enable on startup
+" this can be toggled with :IndentGuidesEnable :IndentGuidesDisable
+" :IndentGuidesToggle
+let g:indent_guides_enable_on_vim_startup = 1
+set autoindent
+
 
 "------  Bring in basic behavior  ------"
 source $HOME/.vimrc_basic
