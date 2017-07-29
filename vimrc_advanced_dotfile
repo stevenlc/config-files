@@ -12,15 +12,19 @@
 "   vim-javascript
 "   vim-javascript-syntax
 "   youcompleteme           - syntax suggestions
-
+"
+"------  Bring in basic behavior  ------"
+source $HOME/.vimrc_basic
 
 ""----- Required for Pathogen.vim -----"
 execute pathogen#infect()
 
 "------  NERDTree Options  ------"
 let NERDTreeIgnore=['\.git$', '\.pyc$', '__pycache__']
+
 " following line finds the current file in NERDTree when pressing <Leader>a
-map <leader>a :NERDTreeFind<C-M>
+map <Leader>a :NERDTreeFind<C-M>
+
 " quit vim if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -46,9 +50,6 @@ set completeopt-=preview
 let g:indent_guides_enable_on_vim_startup = 1
 set autoindent
 
-
-"------  Bring in basic behavior  ------"
-source $HOME/.vimrc_basic
 
 "------  Always use the mouse  ------"
 set mouse=a
