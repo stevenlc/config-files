@@ -6,6 +6,8 @@
 " ~/.vim/bundles directory. Here are the ones I use: 
 "   delimitMate.vim         - auto-closing (s and {s
 "   nerdtree                - tree navigator
+"   syntastic               - code linting. finding common errors
+"                           - for javascript coding, also install jshint via npm
 "   tern_for_vim            - autocomplete. needs youcompleteme
 "   vim-distinguished       - vim terminal color scheme
 "   vim-indent-guides
@@ -28,6 +30,16 @@ map <Leader>a :NERDTreeFind<C-M>
 " quit vim if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"----- Syntastic Options -----"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 "----- Distinguished color scheme -----" 
 " set t_Co = 256
 syntax on
@@ -48,6 +60,9 @@ set completeopt-=preview
 " this can be toggled with :IndentGuidesEnable :IndentGuidesDisable
 " :IndentGuidesToggle
 let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+set background=dark 
 set autoindent
 
 "----- Set .ejs to use html bindings -----"
@@ -73,5 +88,4 @@ set clipboard^=unnamed
 if has('unnamedplus')
     set clipboard^=unnamedplus
 endif
-
 
