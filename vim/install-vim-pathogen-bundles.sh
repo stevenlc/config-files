@@ -38,6 +38,17 @@ cd ~/.vim/bundle/YouCompleteMe
 cd ~/.vim/bundle
 git clone https://github.com/marijnh/tern_for_vim
 
+# create the .tern-project file so that no Warnings show up when vim is started
+touch ~/.tern-project
+echo "{
+    "libs" : ["ecma6", "browser"],
+    "plugins": {
+            "node" : {},
+            "es_modules" : {}
+        },
+    "ecmaVersion": 6
+}" > ~/.tern-project
+
 # Distinguished - color scheme with dark bg terminal for vim
 cd ~/.vim/bundle
 git clone https://github.com/lokaltog/vim-distinguished
