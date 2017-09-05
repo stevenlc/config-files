@@ -3,18 +3,10 @@
 "    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 "    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 " from there, you can install bundles by git cloning the repos into the
-" ~/.vim/bundles directory. Here are the ones I use: 
-"   delimitMate.vim         - auto-closing (s and {s
-"   nerdtree                - tree navigator
-"   syntastic               - code linting. finding common errors
-"                           - for javascript coding, also install jshint via npm
-"   tern_for_vim            - autocomplete. needs youcompleteme
-"   vim-distinguished       - vim terminal color scheme
-"   vim-indent-guides
-"   vim-javascript
-"   vim-javascript-syntax
-"   youcompleteme           - syntax suggestions
-"
+" ~/.vim/bundles directory."
+" To simplify this process, all the commands needed to clone+install the repos
+" are in the install-bundles.sh script
+
 "------  Bring in basic behavior  ------"
 source $HOME/.vimrc_basic
 
@@ -66,6 +58,56 @@ let g:ale_lint_on_text_changed = 0
 let g:syntastic_javascript_checkers=['eslint']
 " let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+"----- VIM Airline ------"
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" This allows buffers to be hidden if you've modified a buffer.
+" This is almost a must if you wish to use buffers in this way.
+set hidden
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+"----- BufferGator -----"
+" Use the right side of the screen
+let g:buffergator_viewport_split_policy = 'R'
+
+" I want my own keymappings...
+let g:buffergator_suppress_keymaps = 1
+
+" Looper buffers
+"let g:buffergator_mru_cycle_loop = 1
+
+" Go to the previous buffer open
+nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+
+" Go to the next buffer open
+nmap <leader>kk :BuffergatorMruCycleNext<cr>
+
+" View the entire list of buffers open
+" nmap <leader>bl :BuffergatorOpen<cr>
+nmap <leader>b :BuffergatorOpen<cr>
+
+nmap <leader>T :enew<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
 
 "----- Distinguished color scheme -----" 
 " set t_Co = 256
