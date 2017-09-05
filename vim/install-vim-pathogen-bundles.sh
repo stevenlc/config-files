@@ -21,6 +21,10 @@ git clone https://github.com/vim-scripts/delimitMate.vim
 cd ~/.vim/bundle
 git clone https://github.com/vbundles/nerdtree
 
+# Ale - code linting in real-time. requires Vim 8+
+cd ~/.vim/bundle
+git clone https://github.com/w0rp/ale.git
+
 # Syntastic - code linting
 cd ~/.vim/bundle
 git clone https://github.com/scrooloose/syntastic
