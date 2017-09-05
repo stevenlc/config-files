@@ -13,6 +13,13 @@
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
+# vim-airline - Lean & mean status/tabline for vim that's light as air 
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+
+# BufferGator - for efficient vim buffer traversal  
+cd ~/.vim/bundle
+git clone https://github.com/jeetsukumaran/vim-buffergator
+
 # DelimitMate - for auto closing () and {}
 cd ~/.vim/bundle
 git clone https://github.com/vim-scripts/delimitMate.vim
