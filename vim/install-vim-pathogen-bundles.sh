@@ -28,6 +28,9 @@ git clone https://github.com/scrooloose/syntastic
 # JSHint - for code linting
 npm install -g jshint
 
+# ESLint - for code linting. better than JSHint but requires more setup
+npm install -g eslint
+
 # YouCompleteMe - syntax suggestions
 cd ~/.vim/bundle
 git clone https://github.com/valloric/youcompleteme
