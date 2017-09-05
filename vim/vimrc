@@ -25,6 +25,9 @@ let NERDTreeIgnore=['\.git$', '\.pyc$', '__pycache__']
 " following line finds the current file in NERDTree when pressing <Leader>a
 map <Leader>a :NERDTreeFind<C-M>
 
+" toggle nerdtree
+map <Leader>q :NERDTreeToggle<CR>
+
 " quit vim if NERDTree is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
