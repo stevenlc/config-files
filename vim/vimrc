@@ -39,9 +39,13 @@ set statusline=[%n]\ %t
 
 "----- Ctrl-P -----"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-map <Leader>p :CtrlPBuffer<CR>
 " let g:ctrlp_cmd = 'CtrlPMRU'
-let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+map <Leader>p :CtrlP<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
 " "----- Syntastic Options -----"
 " set statusline+=%#warningmsg#
