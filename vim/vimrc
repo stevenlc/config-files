@@ -37,6 +37,9 @@ let NERDTreeDirArrows = 1
 " [buffer number] followed by filename:
 set statusline=[%n]\ %t
 
+"----- Ctrl-P -----"
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " "----- Syntastic Options -----"
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}

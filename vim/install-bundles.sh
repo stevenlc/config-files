@@ -32,6 +32,10 @@ git clone https://github.com/vbundles/nerdtree
 cd ~/.vim/bundle
 git clone https://github.com/w0rp/ale.git
 
+# Ctrl-P - 
+cd ~/.vim
+git clone https://github.com/ctrlpvim/ctrlp.vim.git bundle/ctrlp.vim
+
 # Syntastic - code linting
 cd ~/.vim/bundle
 git clone https://github.com/scrooloose/syntastic
