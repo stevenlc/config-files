@@ -39,6 +39,9 @@ set statusline=[%n]\ %t
 
 "----- Ctrl-P -----"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+map <Leader>p :CtrlPBuffer<CR>
+" let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " "----- Syntastic Options -----"
 " set statusline+=%#warningmsg#
