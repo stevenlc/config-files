@@ -25,8 +25,7 @@ cd ~/.vim/bundle
 git clone https://github.com/vim-scripts/delimitMate.vim
 
 # NerdTree - for file navigator view
-cd ~/.vim/bundle
-git clone https://github.com/vbundles/nerdtree
+git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 # Ale - code linting in real-time. requires Vim 8+
 cd ~/.vim/bundle
