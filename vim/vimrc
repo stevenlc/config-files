@@ -165,6 +165,9 @@ function! ToggleMouse()
     endif
 endfunction
 
+"----- Allow for toggling paste mode -----"
+set pastetoggle=<Leader>-
+
 "----- Share clipboard -----"
 set clipboard^=unnamed
 if has('unnamedplus')
