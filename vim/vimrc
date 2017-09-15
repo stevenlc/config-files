@@ -153,15 +153,17 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "------  Always use the mouse  ------"
 set mouse=a
 
-"----- Allow for easy mouse toggling -----"
+"----- Allow for easy toggling of mouse and line numbers -----"
 nnoremap <Leader>m :call ToggleMouse()<CR>
 function! ToggleMouse()
     if &mouse == 'a'
         set mouse=
-        echo "Mouse usage disabled"
+        set nonumber
+        echo "Mouse usage disabled. Line numbers removed."
     else
         set mouse=a
-        echo "Mouse usage enabled"
+        set number
+        echo "Mouse usage enabled. Line numbers added."
     endif
 endfunction
 
