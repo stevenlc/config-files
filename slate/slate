@@ -62,9 +62,9 @@ bind k:cmd;shift        ${tophalf}
 bind u:cmd;shift        ${center}
 bind u:cmd;shift;ctrl   ${center-big}
 
-bind p:cmd;shift        ${middle}
-bind i:cmd;shift        ${topleft}
-bind o:cmd;shift        ${topright}
+# bind p:cmd;shift        ${middle}
+# bind i:cmd;shift        ${topleft}
+# bind o:cmd;shift        ${topright}
 
 # x/8 left/right
 bind left:cmd;shift;ctrl    ${left-big}
