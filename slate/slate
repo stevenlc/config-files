@@ -90,5 +90,6 @@ bind s:cmd;ctrl;alt     relaunch
 bind s:cmd;shift        focus 'Slack'
 bind c:cmd;shift        focus 'Google Chrome'
 bind n:cmd;shift        focus 'Microsoft OneNote'
-bind z:cmd;shift        focus 'zoom.us'
-bind f:cmd;shift.       focus 'Firefox'
+bind o:cmd;shift        focus 'zoom.us'
+bind f:cmd;shift        focus 'Firefox'
+bind e:cmd;shift        focus 'Trello'
